@@ -7,16 +7,16 @@
 # <https://github.com/KFERMercer/OpenWrt-CI>
 #
 
-name: 小米mini
+name: 小米mini 2
 
 on:
   push:
     branches: 
       - master
-  # schedule:
-  #   - cron: 0 20 * * *
-  # release:
-  #   types: [published]
+  #schedule:
+  #  - cron: 0 20 * * *
+  #release:
+  #  types: [published]
 
 jobs:
   build:
@@ -101,9 +101,9 @@ jobs:
 
           # 编译x64固件:
           cat >> .config <<EOF
-          CONFIG_TARGET_ramips=y
           CONFIG_TARGET_ramips_mt7620=y
           CONFIG_TARGET_ramips_mt7620_DEVICE_xiaomi_miwifi-mini=y
+          CONFIG_TARGET_BOARD="ramips"
           EOF
 
           # 固件压缩:
